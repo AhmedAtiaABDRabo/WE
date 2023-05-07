@@ -1,0 +1,74 @@
+- name: Driver Discovery
+  hosts: iosxr,ios
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+
+    ###
+    #IOS XR
+    #
+    - name: Run show version on IOS-XR
+      cisco.iosxr.iosxr_command:
+        commands: show version | utility head -n 1
+      register: os_version
+      when: inventory_hostname in groups.iosxr
+
+    - name: Run Kernel Discovery on IOS-XR
+      cisco.iosxr.iosxr_command:
+        commands:
+          - bash uname -mrs
+      register: kernel_version
+      when: inventory_hostname in groups.iosxr
+
+    - name: Show device Model
+      cisco.iosxr.iosxr_command:
+        commands:
+          - show inventory | include NAME | include Cisco | utility head -n 1 | utility cut -d',' -f2
+      register: model_name
+      when: inventory_hostname in groups.iosxr
+
+    - name: Showing Versions from Devices
+      ansible.builtin.debug:
+        msg: "{{ os_version.stdout }} {{ kernel_version.stdout }} {{ model_name.stdout }}"
+
+    - name: Logging Detected Drivers
+      ansible.builtin.shell: 'echo " {{ inventory_hostname }}: {{ model_name.stdout }} {{ os_version.stdout }} & {{ kernel_version.stdout }}" >> logs/discovered-drivers.log'
+    - name: Timestamp
+      ansible.builtin.shell: echo "Last Edited @" $(date) >> logs/discovered-drivers.log
+      run_once: yes
+
+    ###
+    #IOS
+    #
+    - name: Run show version on IOS
+      cisco.ios.ios_command:
+        commands: show version | utility head -n 1
+      register: os_version
+      when: inventory_hostname in groups.ios
+
+    - name: Run Kernel Discovery on IOS
+      cisco.ios.ios_command:
+        commands:
+          - bash uname -mrs
+      register: kernel_version
+      when: inventory_hostname in groups.ios
+
+    - name: Show device Model
+      cisco.ios.ios_command:
+        commands:
+          - show inventory | include NAME | include Cisco | utility head -n 1 | utility cut -d',' -f2
+      register: model_name
+      when: inventory_hostname in groups.ios
+
+    - name: Showing Versions from Devices
+      ansible.builtin.debug:
+        msg: "{{ os_version.stdout }} {{ kernel_version.stdout }} {{ model_name.stdout }}"
+
+    - name: Logging Detected Drivers
+      ansible.builtin.shell: 'echo " {{ inventory_hostname }}: {{ model_name.stdout }} {{ os_version.stdout }} & {{ kernel_version.stdout }}" >> logs/discovered-drivers.log'
+    - name: Timestamp
+      ansible.builtin.shell: echo "Last Edited @" $(date) >> logs/discovered-drivers.log
+      run_once: yes
+
+    - name: Save Playbook Logs
+      ansible.builtin.shell: copy ansible.log logs/playbooklogs_discovered-drivers.log

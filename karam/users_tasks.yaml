@@ -1,0 +1,23 @@
+- name: Ensure users groups
+  cisco.iosxr.iosxr_config:
+    lines: 
+      - usergroup {{ item['USER_GROUP'] }}
+  loop: "{{ USERS }}"
+- name: Ensure existing user
+  cisco.iosxr.iosxr_user:
+    name: "{{ item['NAME'] }}"
+    configured_password: "{{ item['PASS'] }}"
+#        admin: "{{ IF_ADMIN }}"
+#        admin: true
+    group: "{{ item['USER_GROUP'] }}"
+    state: present
+  loop: "{{ USERS }}"
+
+- name: Ensuring admin groups for admin users
+  cisco.iosxr.iosxr_user:
+    name: "{{ item['NAME'] }}"
+    groups:
+      - root-lr
+      - cisco-support
+  when: item['ADMIN']
+  loop: "{{ USERS }}"

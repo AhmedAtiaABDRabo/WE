@@ -1,0 +1,20 @@
+msg
+HOST= {'hostname': 'Router1'}
+ROUTER_MODEL= IOS-XRv 9000
+SOFTWARE_VERSION= iosxr
+IPV4_ADDRESSES= ['10.10.10.100']
+INTERFACES=  ############# INTERFACE= GigabitEthernet0/0/0/0 ENABLED= True  ############# INTERFACE= GigabitEthernet0/0/0/1 ENABLED= False  ############# INTERFACE= GigabitEthernet0/0/0/2 ENABLED= False  ############# INTERFACE= GigabitEthernet0/0/0/3 ENABLED= False 
+ACL= [{'acls': [{'name': 'test', 'aces': [{'sequence': 10, 'grant': 'permit', 'protocol': 'tcp', 'source': {'any': True}, 'destination': {'any': True, 'port_protocol': {'eq': 'www'}}}, {'sequence': 20, 'grant': 'permit', 'protocol': 'tcp', 'source': {'any': True}, 'destination': {'any': True, 'port_protocol': {'eq': 'ssh'}}}]}], 'afi': 'ipv4'}]
+INTERFACES= [{'name': 'GigabitEthernet0/0/0/0', 'enabled': True}, {'name': 'GigabitEthernet0/0/0/1', 'enabled': False}, {'name': 'GigabitEthernet0/0/0/2', 'enabled': False}, {'name': 'GigabitEthernet0/0/0/3', 'enabled': False}]
+MAC_ADDRESSES= \
+
+msg
+HOST= {'hostname': 'test'}
+ROUTER_MODEL= IOS-XRv 9000
+SOFTWARE_VERSION= iosxr
+IPV4_ADDRESSES= ['10.100.100.54', '10.100.100.53', '10.10.100.100']
+INTERFACES=  ############# INTERFACE= GigabitEthernet0/0/0/0 ENABLED= True  ############# INTERFACE= GigabitEthernet0/0/0/1 ENABLED= False  ############# INTERFACE= GigabitEthernet0/0/0/2 ENABLED= True  ############# INTERFACE= GigabitEthernet0/0/0/3 ENABLED= False 
+ACL= []
+INTERFACES= [{'name': 'GigabitEthernet0/0/0/0', 'enabled': True}, {'name': 'GigabitEthernet0/0/0/1', 'enabled': False}, {'name': 'GigabitEthernet0/0/0/2', 'enabled': True}, {'name': 'GigabitEthernet0/0/0/3', 'enabled': False}]
+MAC_ADDRESSES= \
+

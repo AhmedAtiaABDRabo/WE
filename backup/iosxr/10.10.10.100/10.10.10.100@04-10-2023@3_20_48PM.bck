@@ -1,0 +1,50 @@
+Building configuration...
+!! IOS XR Configuration version = 6.5.1
+!! Last configuration change at Mon Apr 10 07:52:56 2023 by admin
+!
+hostname Router1
+username admin
+ group root-lr
+ group cisco-support
+ secret 5 $1$wuqn$UwxypHt6.ggDI0.6buKfa.
+!
+username amr
+ password 7 13544541
+!
+username karam2
+ secret 5 $1$xIYI$Cg7eqZ0K6n40FpUBEyjpK0
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method http
+ !
+!
+ipv4 access-list test
+ 10 permit tcp any any eq www
+ 20 permit tcp any any eq ssh
+!
+interface MgmtEth0/RP0/CPU0/0
+ shutdown
+!
+interface GigabitEthernet0/0/0/0
+ ipv4 address 10.10.10.100 255.0.0.0
+ ipv4 access-group test ingress
+!
+interface GigabitEthernet0/0/0/1
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
+!
+ssh client source-interface GigabitEthernet0/0/0/0
+ssh client enable cipher aes-cbc
+ssh server enable cipher aes-cbc
+ssh server vrf default ipv4 access-list 10.10.10.100
+crypto fips-mode
+end

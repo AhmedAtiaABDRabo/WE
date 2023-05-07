@@ -1,0 +1,26 @@
+- name: Users and Permissions
+  hosts: iosxr
+  tasks:
+    - name: create a new user in admin configuration mode
+      cisco.iosxr.iosxr_user:
+        name: ansible
+        configured_password: hello
+        admin: true
+        state: present
+    
+          #   - name: set multiple users to group sys-admin
+          #cisco.iosxr.iosxr_user:
+          #aggregate:
+          #- name: ansible
+          #group: sysadmin
+          #state: present
+
+    - name: Update password for user ansible
+      cisco.iosxr.iosxr_user:
+        name: ansible
+        configured_password: 123
+        update_password: always
+        admin: true
+        state: present
+
+

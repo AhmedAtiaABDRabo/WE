@@ -1,0 +1,36 @@
+- name: Sync Dates
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Getting Correct Date
+      ansible.builtin.shell: date +'%m-%d-%Y-%-I-%M-%S%p'
+      register: mydate
+      environment:
+        TZ: "Africa/Cairo"
+
+- name: Backup running configuration
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Testing Date Synchronization
+      set_fact:
+        date: "{{ hostvars.localhost.mydate.stdout }}"
+                                                     
+    - name: Current Date Setting
+      ansible.builtin.debug:
+        msg: "{{ date }}"
+
+    - name: Adjusting Backup File Name
+      set_fact:
+        backuptag: BACKUP#running-configuration{{ ansible_host }}@-{{ date | replace("[", "") | replace("]", "") }}.cfg
+
+    - name: Backing up running configurations
+      cisco.iosxr.iosxr_config:
+        backup: yes
+        backup_options:
+          filename: "{{ backuptag }}"
+
+    - name: Backing up other files
+      ansible.builtin.fetch:
+        src: /tmp/test.txt
+        dest: /var/lib/awx/projects/we/backup

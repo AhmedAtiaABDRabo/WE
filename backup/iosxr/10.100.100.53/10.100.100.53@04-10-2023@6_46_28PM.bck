@@ -1,0 +1,50 @@
+Building configuration...
+!! IOS XR Configuration version = 6.5.1
+!! Last configuration change at Mon Apr 10 16:42:49 2023 by admin
+!
+hostname test
+username admin
+ group root-lr
+ group cisco-support
+ secret 5 $1$wuqn$UwxypHt6.ggDI0.6buKfa.
+ password 7 11081D081E1C
+!
+username amr
+ password 7 01425457
+!
+username karam2
+ secret 5 $1$xhCG$MTqdWyMbLd9ss1jckaVrj0
+!
+service cli interactive disable
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method http
+ !
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 10.100.100.54 255.0.0.0
+ shutdown
+!
+interface GigabitEthernet0/0/0/0
+ ipv4 address 10.100.100.53 255.0.0.0
+!
+interface GigabitEthernet0/0/0/1
+ ipv4 address 10.20.20.21 255.0.0.0
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ ipv4 address 10.10.100.100 255.0.0.0
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
+!
+ssh client source-interface GigabitEthernet0/0/0/0
+ssh client enable cipher aes-cbc
+ssh server logging
+ssh server vrf default ipv4 access-list 10.1
+crypto fips-mode
+end

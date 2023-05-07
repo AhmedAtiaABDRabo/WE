@@ -1,0 +1,82 @@
+- name: Inventory for Devices
+  hosts: iosxr_routers
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    ###
+    # Collect data
+    #
+    - name: Gather facts (ios)
+      cisco.ios.ios_facts:
+        gather_subset: all
+        gather_network_resources: all
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Gather facts (iosxr)
+      cisco.iosxr.iosxr_facts:
+        gather_subset: all
+        gather_network_resources: all
+      when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+    - name: Gather listed vlans with provided configurations
+      cisco.ios.ios_vlans:
+        config:
+        state: gathered
+      when: ansible_network_os == 'cisco.ios.ios'
+
+
+    ###
+    # Demonstrate variables
+    #
+    - name: Writing facts to a log file
+      copy:
+        content: |
+          #jinja2: lstrip_blocks: True
+          IOSXR devices inventory:
+    
+            {% for host in groups.iosxr %}
+
+            Showing Device "{{ hostvars[host].ansible_net_hostname }}" Information
+            
+            Hostname={{ hostvars[host].ansible_net_hostname }}
+            Version={{ hostvars[host].ansible_net_version }}
+            Model={{ hostvars[host].ansible_net_model }}
+            Software_Version={{ hostvars[host].ansible_net_system }}
+            Serial={{ hostvars[host].ansible_net_serialnum }}
+            
+            IPv4_Addresses=
+               {% for ip in hostvars[host].ansible_net_all_ipv4_addresses %}
+               IPv4: {{ ip }}
+               {% if not loop.last %}{% endif %}
+               {% endfor %}
+
+            ACLs=
+               {% for acls in hostvars[host].ansible_network_resources.acls %}
+               {{ acls }} 
+               {% if not loop.last %}{% endif %}
+               {% endfor %}
+
+            Interfaces=
+               {% for interface in hostvars[host].ansible_network_resources.interfaces %}
+               name: {{ interface.name }}, enabled: {{ interface.enabled }}
+               {% if not loop.last %}{% endif %}
+               {% endfor %}
+            
+            L3 Interfaces=
+               {% for interface in hostvars[host].ansible_network_resources.l3_interfaces %}
+               IPv4: {{ interface }}
+               {% if not loop.last %}{% endif %}
+               {% endfor %}
+
+            MAC Addresses for All Interfaces=
+               {% for interface in hostvars[host].ansible_net_interfaces.items() %}
+               {{ interface[0] }}   :   {{ interface[1].macaddress }}
+               {% if not loop.last %}{% endif %}
+               {% endfor %}
+
+
+            ==================================================
+            {% endfor %}
+
+        dest: /var/lib/awx/projects/we/logs/inventory-for-devices.log
+      run_once: yes

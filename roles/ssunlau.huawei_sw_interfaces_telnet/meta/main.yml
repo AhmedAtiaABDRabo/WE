@@ -1,0 +1,22 @@
+galaxy_info:
+  role_name: huawei-sw-interfaces_telnet
+  author: Chun Lau
+  description: gather facts - interfaces (Telnet) from Huawei Switches for Ansible 
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: CentOS
+    versions:
+    - 7
+  #- name: Huawei LS-S5352C-EI 
+  #  versions:
+  #  - all
+  #  - 5.150
+
+  galaxy_tags:
+    - networking
+    - huawei
+    - switch
+    - management 

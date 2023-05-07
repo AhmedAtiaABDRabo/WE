@@ -1,0 +1,36 @@
+{
+ "collection_info": {
+  "namespace": "hwceco",
+  "name": "hwcollection",
+  "version": "1.0.5",
+  "authors": [
+   "Huawei"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "huawei",
+   "cloud",
+   "hwc",
+   "development",
+   "networking"
+  ],
+  "description": "The huaweicloud collection",
+  "license": [
+   "GPL-2.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "https://github.com/huaweicloud/huaweicloud-ansible-modules",
+  "documentation": "https://ansible-collection-for-huaweicloud.readthedocs.io/en/latest/index.html",
+  "homepage": "https://github.com/huaweicloud/huaweicloud-ansible-modules",
+  "issues": "https://github.com/huaweicloud/huaweicloud-ansible-modules/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "5282b683a33c2281c9583a9f46ac0c3191a658d7586e43cc9c68adb0704984a7",
+  "format": 1
+ },
+ "format": 1
+}

@@ -1,0 +1,13 @@
+---
+- name: gather-facts
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Gather facts task
+      cisco.iosxr.iosxr_facts:
+        gather_subset: all
+        gather_network_resources: all  
+      register: myout
+    - name: debug result
+      ansible.builtin.debug:
+        msg: "{{ myout }} "

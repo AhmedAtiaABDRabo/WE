@@ -1,0 +1,53 @@
+ 
+2023-04-13 15:27:14,575 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/collections/ansible_collections": {"community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.utils": {"version": "2.9.0"}, "ansible.netcommon": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.nxos": {"version": "4.1.0"}, "hwceco.hwcollection": {"version": "1.0.5"}, "junipernetworks.junos": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "paloaltonetworks.panos": {"version": "2.13.2"}}}
+2023-04-13 15:27:16,611 p=21 u=root n=ansible | PLAY [Policy Compliance] ******************************************************************************************************************
+2023-04-13 15:27:16,683 p=21 u=root n=ansible | TASK [Get running configuration] **********************************************************************************************************
+2023-04-13 15:27:18,326 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-13 15:27:18,350 p=34 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-13 15:27:18,387 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-13 15:27:18,410 p=37 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-13 15:27:25,024 p=21 u=root n=ansible | ok: [10.10.10.100]
+2023-04-13 15:27:25,799 p=21 u=root n=ansible | ok: [10.100.100.53]
+2023-04-13 15:27:25,814 p=21 u=root n=ansible | TASK [Check firmware version] *************************************************************************************************************
+2023-04-13 15:27:27,627 p=21 u=root n=ansible | ok: [10.10.10.100]
+2023-04-13 15:27:27,708 p=21 u=root n=ansible | ok: [10.100.100.53]
+2023-04-13 15:27:27,723 p=21 u=root n=ansible | TASK [Check access-lists] *****************************************************************************************************************
+2023-04-13 15:27:29,472 p=21 u=root n=ansible | ok: [10.10.10.100]
+2023-04-13 15:27:29,513 p=21 u=root n=ansible | ok: [10.100.100.53]
+2023-04-13 15:27:29,527 p=21 u=root n=ansible | TASK [Demo Example to Upgrade firmware if not following software version policy] **********************************************************
+2023-04-13 15:27:32,578 p=21 u=root n=ansible | fatal: [10.10.10.100]: FAILED! => {"changed": false, "msg": "install add disk0:/firmware/6.5.1\r\n\r                                ^\r\n% Invalid input detected at '^' marker.\r\nRP/0/RP0/CPU0:Router1(config)#"}
+2023-04-13 15:27:32,578 p=21 u=root n=ansible | ...ignoring
+2023-04-13 15:27:33,232 p=21 u=root n=ansible | fatal: [10.100.100.53]: FAILED! => {"changed": false, "msg": "install add disk0:/firmware/6.5.1\r\n\r                             ^\r\n% Invalid input detected at '^' marker.\r\nRP/0/RP0/CPU0:test(config)#"}
+2023-04-13 15:27:33,233 p=21 u=root n=ansible | ...ignoring
+2023-04-13 15:27:33,245 p=21 u=root n=ansible | TASK [Apply Password Security Policies] ***************************************************************************************************
+2023-04-13 15:27:33,369 p=21 u=root n=ansible | skipping: [10.100.100.53] => (item={'running': 'username security', 'command': 'username security password 0 123'}) 
+2023-04-13 15:27:33,383 p=21 u=root n=ansible | skipping: [10.10.10.100] => (item={'running': 'username security', 'command': 'username security password 0 123'}) 
+2023-04-13 15:27:33,398 p=21 u=root n=ansible | skipping: [10.100.100.53] => (item={'running': 'username omar', 'command': 'username omar password 0 321'}) 
+2023-04-13 15:27:33,407 p=21 u=root n=ansible | skipping: [10.100.100.53]
+2023-04-13 15:27:33,415 p=21 u=root n=ansible | skipping: [10.10.10.100] => (item={'running': 'username omar', 'command': 'username omar password 0 321'}) 
+2023-04-13 15:27:33,422 p=21 u=root n=ansible | skipping: [10.10.10.100]
+2023-04-13 15:27:33,434 p=21 u=root n=ansible | TASK [Apply AAA Security Policies] ********************************************************************************************************
+2023-04-13 15:27:33,574 p=21 u=root n=ansible | skipping: [10.100.100.53] => (item=aaa authentication ppp default local) 
+2023-04-13 15:27:33,582 p=21 u=root n=ansible | skipping: [10.10.10.100] => (item=aaa authentication ppp default local) 
+2023-04-13 15:27:35,864 p=21 u=root n=ansible | ok: [10.10.10.100] => (item=aaa authentication login vty-authen group tacacs+ local)
+2023-04-13 15:27:36,030 p=21 u=root n=ansible | ok: [10.100.100.53] => (item=aaa authentication login vty-authen group tacacs+ local)
+2023-04-13 15:27:36,050 p=21 u=root n=ansible | TASK [Push an access-list] ****************************************************************************************************************
+2023-04-13 15:27:36,170 p=21 u=root n=ansible | skipping: [10.100.100.53] => (item={'name': 'acl_1'}) 
+2023-04-13 15:27:36,190 p=21 u=root n=ansible | skipping: [10.10.10.100] => (item={'name': 'acl_1'}) 
+2023-04-13 15:27:36,205 p=21 u=root n=ansible | skipping: [10.100.100.53] => (item={'name': 'acl_2'}) 
+2023-04-13 15:27:36,226 p=21 u=root n=ansible | skipping: [10.10.10.100] => (item={'name': 'acl_2'}) 
+2023-04-13 15:27:36,234 p=21 u=root n=ansible | skipping: [10.100.100.53] => (item={'name': 'acl_3'}) 
+2023-04-13 15:27:36,245 p=21 u=root n=ansible | skipping: [10.10.10.100] => (item={'name': 'acl_3'}) 
+2023-04-13 15:27:42,997 p=21 u=root n=ansible | changed: [10.10.10.100] => (item={'name': 'acl_4'})
+2023-04-13 15:27:43,877 p=21 u=root n=ansible | changed: [10.100.100.53] => (item={'name': 'acl_4'})
+2023-04-13 15:27:43,961 p=21 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************
+2023-04-13 15:27:43,961 p=21 u=root n=ansible | 10.10.10.100               : ok=6    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=1   
+2023-04-13 15:27:43,962 p=21 u=root n=ansible | 10.100.100.53              : ok=6    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=1   
+2023-04-13 15:27:44,058 p=37 u=root n=ansible | shutdown complete
+2023-04-13 15:27:44,059 p=34 u=root n=ansible | shutdown complete

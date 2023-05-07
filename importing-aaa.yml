@@ -1,0 +1,29 @@
+- name: Extract data from CSV file and add it to the inventory
+  hosts: localhost
+  vars_files: credentials.yml
+  tasks:
+    - name: Read CSV file
+      community.general.read_csv:
+        path: credentials.csv #CSV file with no headers
+        fieldnames: user,pass #Custom headers
+        delimiter: ',' #Separations between columns
+      register: credentials
+
+    - name: Add
+      blockinfile:
+        path: credentials.yml
+        block: |
+          #Imported Credentials#
+            - username: {{ item.user }}
+              password: {{ item.pass }}
+      loop: "{{ credentials.list }}"
+    
+           #    - name: copy
+           #  copy:
+           #dest: credentials.yml
+           #content: |
+              #      credentials:
+                #     - username: {{ item.user }}
+                #      password: {{ item.pass }}
+      # loop: "{{ credentials.list }}"
+

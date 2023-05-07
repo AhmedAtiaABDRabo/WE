@@ -1,0 +1,539 @@
+2023-04-11 08:28:05,594 p=16 u=root n=ansible | ERROR! - None of the provided paths were usable. Please specify a valid path with --collections-path
+2023-04-11 08:28:07,611 p=21 u=root n=ansible | ERROR! couldn't resolve module/action 'cisco.iosxr.iosxr_config'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Ensure existing group
+      ^ here
+
+2023-04-11 08:29:14,279 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 08:29:16,251 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 08:29:16,301 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 08:29:18,114 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 08:29:19,939 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 08:29:29,185 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 08:29:29,218 p=21 u=root n=ansible | TASK [Ensure existing group] ***************************************************
+2023-04-11 08:29:31,645 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 08:29:31,657 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 08:29:38,701 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 08:29:38,701 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 08:29:38,714 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 08:29:38,758 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ADMINGROUP_NAME' is undefined. 'ADMINGROUP_NAME' is undefined\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 17, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n        state: present\n    - name: Ensuring existing admin\n      ^ here\n"}
+2023-04-11 08:29:38,762 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 08:29:38,763 p=21 u=root n=ansible | 10.100.151.50              : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 08:29:38,861 p=31 u=root n=ansible | shutdown complete
+2023-04-11 08:35:14,851 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 08:35:16,866 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 08:35:16,921 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 08:35:18,616 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 08:35:20,154 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 08:35:25,220 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 08:35:25,257 p=21 u=root n=ansible | TASK [Ensure existing group] ***************************************************
+2023-04-11 08:35:31,357 p=21 u=root n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines
+should be similar to how they appear if present in the running configuration on
+device
+
+2023-04-11 08:35:31,358 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 08:35:31,373 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 08:35:37,688 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 08:35:37,689 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 08:35:37,704 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 08:35:42,364 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 08:35:42,414 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 08:35:42,414 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 08:35:42,512 p=31 u=root n=ansible | shutdown complete
+2023-04-11 09:27:57,205 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 09:27:59,286 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 09:27:59,340 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 09:28:00,988 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 09:28:02,511 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 09:28:07,508 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 09:28:07,572 p=21 u=root n=ansible | TASK [Ensure existing group] ***************************************************
+2023-04-11 09:28:07,622 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ADMINGROUP_NAME' is undefined. 'ADMINGROUP_NAME' is undefined\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 7, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Ensure existing group\n      ^ here\n"}
+2023-04-11 09:28:07,625 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 09:28:07,625 p=21 u=root n=ansible | 10.100.151.50              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 09:28:30,550 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 09:28:32,453 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 09:28:32,506 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 09:28:34,139 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 09:28:35,600 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 09:28:40,538 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 09:28:40,587 p=21 u=root n=ansible | TASK [Ensure existing group] ***************************************************
+2023-04-11 09:28:40,636 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ADMINGROUP_NAME' is undefined. 'ADMINGROUP_NAME' is undefined\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 7, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Ensure existing group\n      ^ here\n"}
+2023-04-11 09:28:40,639 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 09:28:40,639 p=21 u=root n=ansible | 10.100.151.50              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 09:29:03,193 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 09:29:05,188 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 09:29:05,242 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 09:29:06,941 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 09:29:08,544 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 09:29:13,632 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 09:29:13,670 p=21 u=root n=ansible | TASK [Ensure existing group] ***************************************************
+2023-04-11 09:29:15,954 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 09:29:15,969 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 09:29:22,232 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 09:29:22,233 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 09:29:22,248 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 09:29:26,408 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 09:29:26,459 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 09:29:26,459 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 09:29:26,557 p=31 u=root n=ansible | shutdown complete
+2023-04-11 09:36:24,046 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 09:36:26,250 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 09:36:26,301 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 09:36:28,085 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 09:36:29,835 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 09:36:34,801 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 09:36:34,840 p=21 u=root n=ansible | TASK [Ensure existing group] ***************************************************
+2023-04-11 09:36:36,979 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 09:36:36,993 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 09:36:42,615 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 09:36:42,615 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 09:36:42,630 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 09:36:49,819 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 09:36:49,874 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 09:36:49,874 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 09:36:49,973 p=31 u=root n=ansible | shutdown complete
+2023-04-11 12:00:28,541 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:00:30,429 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:00:30,481 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:00:32,088 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:00:33,856 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:00:42,721 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:00:42,761 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:00:42,792 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "Invalid data passed to 'loop', it requires a list, got this instead: USER. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."}
+2023-04-11 12:00:42,795 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:00:42,796 p=21 u=root n=ansible | 10.100.151.50              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:02:06,910 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:02:09,142 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:02:09,194 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:02:10,812 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:02:12,362 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:02:16,993 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:02:17,032 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:02:17,086 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'dict object' has no attribute 'USER_GROUP'. 'dict object' has no attribute 'USER_GROUP'\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 7, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Ensure users groups\n      ^ here\n"}
+2023-04-11 12:02:17,090 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:02:17,091 p=21 u=root n=ansible | 10.100.151.50              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:02:44,422 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:02:46,535 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:02:46,587 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:02:48,400 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:02:49,940 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:02:55,288 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:02:55,327 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:03:01,998 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:03:07,958 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:03:07,967 p=21 u=root n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines
+should be similar to how they appear if present in the running configuration on
+device
+
+2023-04-11 12:03:07,988 p=21 u=root n=ansible | TASK [Ensure admins groups] ****************************************************
+2023-04-11 12:03:10,428 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:03:10,451 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:03:17,454 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:03:24,134 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:03:24,143 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:03:24,160 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 12:03:30,736 p=21 u=root n=ansible | changed: [10.100.151.50]
+2023-04-11 12:03:30,794 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:03:30,795 p=21 u=root n=ansible | 10.100.151.50              : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:03:30,892 p=31 u=root n=ansible | shutdown complete
+2023-04-11 12:05:54,957 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:05:57,172 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:05:57,225 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:05:58,916 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:06:00,587 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:06:05,604 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:06:05,645 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:06:07,994 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:06:09,703 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:06:09,728 p=21 u=root n=ansible | TASK [Ensure admins groups] ****************************************************
+2023-04-11 12:06:11,994 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:06:12,020 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:06:18,268 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:06:23,905 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:06:23,913 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:06:23,929 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 12:06:31,567 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:06:31,610 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:06:31,610 p=21 u=root n=ansible | 10.100.151.50              : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:11:02,549 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:11:04,559 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:11:04,613 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:11:06,262 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:11:07,820 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:11:13,214 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:11:13,253 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:11:15,953 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:11:18,098 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:11:18,123 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:11:23,929 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:11:29,451 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:11:29,460 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:11:29,477 p=21 u=root n=ansible | TASK [Ensure admins groups] ****************************************************
+2023-04-11 12:11:31,958 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:11:31,982 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 12:11:38,619 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:11:38,674 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:11:38,674 p=21 u=root n=ansible | 10.100.151.50              : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:12:29,287 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:12:31,517 p=21 u=root n=ansible | ERROR! unexpected parameter type in action: <class 'ansible.parsing.yaml.objects.AnsibleSequence'>
+
+The error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 7, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+  - import_tasks:
+    ^ here
+
+2023-04-11 12:14:43,919 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:14:46,159 p=21 u=root n=ansible | ERROR! No file specified for import_tasks
+2023-04-11 12:15:13,344 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:15:15,427 p=21 u=root n=ansible | ERROR! You cannot use loops on 'import_tasks' statements. You should use 'include_tasks' instead.
+
+The error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 7, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+  - import_tasks: "{{ item }}"
+    ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2023-04-11 12:16:42,572 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:16:44,681 p=21 u=root n=ansible | ERROR! no module/action detected in task.
+
+The error appears to be in '/var/lib/awx/projects/we/karam/karam-users-groups-permissions.yaml': line 7, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Including tasks
+      ^ here
+
+2023-04-11 12:17:06,359 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:17:08,392 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:17:08,445 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:17:09,987 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:17:11,489 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:17:16,146 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:17:16,187 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:17:16,286 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:17:16,298 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/admins_tasks.yaml for 10.100.151.50 => (item=admins_tasks.yaml)
+2023-04-11 12:17:16,317 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:17:16,350 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:17:18,569 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:17:20,640 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:17:20,664 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:17:20,697 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:17:26,573 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:17:32,183 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:17:32,192 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:17:32,209 p=21 u=root n=ansible | TASK [Ensure admins groups] ****************************************************
+2023-04-11 12:17:32,241 p=21 u=root n=ansible | [WARNING]: TASK: Ensure admins groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:17:34,440 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:17:34,466 p=21 u=root n=ansible | TASK [Ensuring existing admin] *************************************************
+2023-04-11 12:17:34,497 p=21 u=root n=ansible | [WARNING]: TASK: Ensuring existing admin: The loop variable 'item' is already
+in use. You should set the `loop_var` value in the `loop_control` option for
+the task to something else to avoid variable collisions and unexpected
+behavior.
+
+2023-04-11 12:17:40,960 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin3', 'PASS': 123, 'ADMIN_GROUP': 'admins'})
+2023-04-11 12:17:41,017 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:17:41,018 p=21 u=root n=ansible | 10.100.151.50              : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:30:31,187 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:30:33,334 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:30:33,387 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:30:35,113 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:30:36,826 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:30:42,119 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:30:42,159 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:30:42,248 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:30:42,266 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:30:42,300 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:30:44,684 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:30:46,971 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:30:53,588 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:30:53,598 p=21 u=root n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines
+should be similar to how they appear if present in the running configuration on
+device
+
+2023-04-11 12:30:53,614 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:30:53,649 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:31:00,267 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:31:06,288 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:31:13,376 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:31:13,385 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:31:13,400 p=21 u=root n=ansible | TASK [Ensuring admin groups for admin users] ***********************************
+2023-04-11 12:31:13,434 p=21 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating
+delimiters such as {{ }} or {% %}. Found: {{ USERS['ADMIN'] }}
+
+2023-04-11 12:31:13,448 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The conditional check '{{ USERS['ADMIN'] }}' failed. The error was: error while evaluating conditional ({{ USERS['ADMIN'] }}): 'list object' has no attribute 'ADMIN'. 'list object' has no attribute 'ADMIN'\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/users_tasks.yaml': line 16, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Ensuring admin groups for admin users\n  ^ here\n"}
+2023-04-11 12:31:13,452 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:31:13,452 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:32:41,912 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:32:44,132 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:32:44,184 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:32:45,903 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:32:47,392 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:32:52,930 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:32:52,983 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:32:53,102 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:32:53,113 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:32:53,158 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:32:55,798 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False})
+2023-04-11 12:32:58,022 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False})
+2023-04-11 12:32:59,921 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:32:59,946 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:32:59,980 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:33:06,033 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False})
+2023-04-11 12:33:11,480 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False})
+2023-04-11 12:33:23,774 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:33:23,781 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:33:23,797 p=21 u=root n=ansible | TASK [Ensuring admin groups for admin users] ***********************************
+2023-04-11 12:33:23,827 p=21 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating
+delimiters such as {{ }} or {% %}. Found: {{ USERS['ADMIN'] }}
+
+2023-04-11 12:33:23,840 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The conditional check '{{ USERS['ADMIN'] }}' failed. The error was: error while evaluating conditional ({{ USERS['ADMIN'] }}): 'list object' has no attribute 'ADMIN'. 'list object' has no attribute 'ADMIN'\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/users_tasks.yaml': line 16, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Ensuring admin groups for admin users\n  ^ here\n"}
+2023-04-11 12:33:23,844 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:33:23,844 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:34:47,938 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:34:50,280 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:34:50,375 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:34:52,024 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:34:53,744 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:34:59,978 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:35:00,022 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:35:00,111 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:35:00,130 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:35:00,165 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:35:02,726 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False})
+2023-04-11 12:35:04,638 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False})
+2023-04-11 12:35:06,856 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:35:06,881 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:35:06,914 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:35:13,371 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False})
+2023-04-11 12:35:19,227 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False})
+2023-04-11 12:35:24,972 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:35:24,981 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:35:24,999 p=21 u=root n=ansible | TASK [Ensuring admin groups for admin users] ***********************************
+2023-04-11 12:35:25,043 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The conditional check 'USERS['ADMIN']' failed. The error was: error while evaluating conditional (USERS['ADMIN']): 'list object' has no attribute 'ADMIN'. 'list object' has no attribute 'ADMIN'\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/users_tasks.yaml': line 16, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Ensuring admin groups for admin users\n  ^ here\n"}
+2023-04-11 12:35:25,046 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:35:25,047 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:36:24,066 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:36:25,972 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:36:26,024 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:36:27,756 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:36:29,333 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:36:34,648 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:36:34,687 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:36:34,773 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:36:34,792 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:36:34,824 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:36:37,334 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False})
+2023-04-11 12:36:40,093 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False})
+2023-04-11 12:36:42,948 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:36:42,974 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:36:43,007 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:36:50,115 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False})
+2023-04-11 12:36:57,518 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False})
+2023-04-11 12:37:04,137 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:37:04,147 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:37:04,166 p=21 u=root n=ansible | TASK [Ensuring admin groups for admin users] ***********************************
+2023-04-11 12:37:04,198 p=21 u=root n=ansible | [WARNING]: TASK: Ensuring admin groups for admin users: The loop variable
+'item' is already in use. You should set the `loop_var` value in the
+`loop_control` option for the task to something else to avoid variable
+collisions and unexpected behavior.
+
+2023-04-11 12:37:04,226 p=21 u=root n=ansible | skipping: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9', 'ADMIN': False}) 
+2023-04-11 12:37:04,240 p=21 u=root n=ansible | skipping: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10', 'ADMIN': False}) 
+2023-04-11 12:37:10,595 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:37:10,652 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:37:10,653 p=21 u=root n=ansible | 10.100.151.50              : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:41:34,490 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:41:36,617 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:41:36,669 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:41:38,335 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:41:39,978 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:41:45,684 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:41:45,730 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:41:45,819 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:41:45,838 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:41:45,871 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:41:48,180 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:41:50,178 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:41:51,960 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:41:51,986 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:41:52,021 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:41:58,140 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:42:04,098 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:42:09,953 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:42:09,962 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:42:09,978 p=21 u=root n=ansible | TASK [Ensuring admin groups for admin users] ***********************************
+2023-04-11 12:42:10,010 p=21 u=root n=ansible | [WARNING]: TASK: Ensuring admin groups for admin users: The loop variable
+'item' is already in use. You should set the `loop_var` value in the
+`loop_control` option for the task to something else to avoid variable
+collisions and unexpected behavior.
+
+2023-04-11 12:42:10,022 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The conditional check 'item['ADMIN']' failed. The error was: error while evaluating conditional (item['ADMIN']): 'dict object' has no attribute 'ADMIN'. 'dict object' has no attribute 'ADMIN'\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/users_tasks.yaml': line 16, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Ensuring admin groups for admin users\n  ^ here\n"}
+2023-04-11 12:42:10,026 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:42:10,026 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-04-11 12:44:31,708 p=16 u=root n=ansible | {"/var/lib/awx/projects/we/karam/collections/ansible_collections": {"ansible.utils": {"version": "2.9.0"}, "ansible.posix": {"version": "1.5.1"}, "ansible.windows": {"version": "1.13.0"}, "ansible.netcommon": {"version": "5.0.0"}, "arubanetworks.aoscx": {"version": "4.1.1"}, "hwceco.hwcollection": {"version": "1.0.5"}, "community.vmware": {"version": "3.4.0"}, "community.general": {"version": "6.4.0"}, "paloaltonetworks.panos": {"version": "2.13.2"}, "cisco.iosxr": {"version": "5.0.0"}, "cisco.ios": {"version": "4.4.0"}, "cisco.nxos": {"version": "4.1.0"}, "junipernetworks.junos": {"version": "5.0.0"}}}
+2023-04-11 12:44:33,729 p=21 u=root n=ansible | PLAY [Configure users, groups, and permissions] ********************************
+2023-04-11 12:44:33,792 p=21 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2023-04-11 12:44:35,362 p=21 u=root n=ansible | network_os is set to cisco.iosxr.iosxr
+2023-04-11 12:44:36,797 p=31 u=root n=ansible | [DEPRECATION WARNING]: PlayContext.verbosity is deprecated, use 
+ansible.utils.display.Display.verbosity instead. This feature will be removed 
+in version 2.18. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-04-11 12:45:46,474 p=21 u=root n=ansible | ok: [10.100.151.50]
+2023-04-11 12:45:46,514 p=21 u=root n=ansible | TASK [Including tasks] *********************************************************
+2023-04-11 12:45:46,601 p=21 u=root n=ansible | included: /var/lib/awx/projects/we/karam/users_tasks.yaml for 10.100.151.50 => (item=users_tasks.yaml)
+2023-04-11 12:45:46,620 p=21 u=root n=ansible | TASK [Ensure users groups] *****************************************************
+2023-04-11 12:45:46,652 p=21 u=root n=ansible | [WARNING]: TASK: Ensure users groups: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:45:49,061 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:45:51,025 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:45:52,796 p=21 u=root n=ansible | ok: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:45:52,821 p=21 u=root n=ansible | TASK [Ensure existing user] ****************************************************
+2023-04-11 12:45:52,852 p=21 u=root n=ansible | [WARNING]: TASK: Ensure existing user: The loop variable 'item' is already in
+use. You should set the `loop_var` value in the `loop_control` option for the
+task to something else to avoid variable collisions and unexpected behavior.
+
+2023-04-11 12:45:59,603 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam9', 'PASS': 123, 'USER_GROUP': 'karam-group9'})
+2023-04-11 12:46:05,342 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'karam10', 'PASS': 123, 'USER_GROUP': 'karam-group10'})
+2023-04-11 12:46:11,927 p=21 u=root n=ansible | changed: [10.100.151.50] => (item={'NAME': 'admin-user', 'PASS': 123, 'USER_GROUP': 'admin-user-group', 'ADMIN': True})
+2023-04-11 12:46:11,937 p=21 u=root n=ansible | [WARNING]: Module did not set no_log for update_password
+
+2023-04-11 12:46:11,954 p=21 u=root n=ansible | TASK [Ensuring admin groups for admin users] ***********************************
+2023-04-11 12:46:11,985 p=21 u=root n=ansible | [WARNING]: TASK: Ensuring admin groups for admin users: The loop variable
+'item' is already in use. You should set the `loop_var` value in the
+`loop_control` option for the task to something else to avoid variable
+collisions and unexpected behavior.
+
+2023-04-11 12:46:12,004 p=21 u=root n=ansible | fatal: [10.100.151.50]: FAILED! => {"msg": "The conditional check 'item['ADMIN']' failed. The error was: error while evaluating conditional (item['ADMIN']): 'dict object' has no attribute 'ADMIN'. 'dict object' has no attribute 'ADMIN'\n\nThe error appears to be in '/var/lib/awx/projects/we/karam/users_tasks.yaml': line 16, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Ensuring admin groups for admin users\n  ^ here\n"}
+2023-04-11 12:46:12,008 p=21 u=root n=ansible | PLAY RECAP *********************************************************************
+2023-04-11 12:46:12,008 p=21 u=root n=ansible | 10.100.151.50              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

@@ -1,0 +1,712 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "303bab42993ed49e9fd216f43f8b65e4650ef6c57e8f8178468e653489091b9e",
+   "format": 1
+  },
+  {
+   "name": "LICENSE",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "213a87679bfb66905f9abb4551fa33ee2361248def56d0e308f3305156ae51e7",
+   "format": 1
+  },
+  {
+   "name": "contrib",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "contrib/inventory",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "contrib/inventory/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "577167c0b35d725699d6d086cd732f2ba62ba13a38ed6eb4911de7bd3dd8c981",
+   "format": 1
+  },
+  {
+   "name": "contrib/inventory/hwc_ecs.ini",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1eb30930be931fd400980531cf3308164750d2fa0cad0b625fbebb63f4f655b8",
+   "format": 1
+  },
+  {
+   "name": "contrib/inventory/hwc_ecs.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c502e33e8d9c87ddbd612e09dcbfa2470086c0639f422fe78fa3eec95aa7920c",
+   "format": 1
+  },
+  {
+   "name": "contrib/inventory/requirements-inventory.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fdbe87602931c2519ba06d8b622504151c24a937e485aabc930d561ada516d4e",
+   "format": 1
+  },
+  {
+   "name": "docs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/_static",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/_static/css",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/_static/css/custom.css",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1dc71230b0bc9142f765e16202f443c4fb5614047cef46e70a83be1c4def4366",
+   "format": 1
+  },
+  {
+   "name": "docs/conf.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ba6c86feb8f67e28e49538b367459c71e8deb3ba602d6fba849e6abd7257b204",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_cce_cluster_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1d1089c9c24d90134b7bc09fe8e09f3b22a85d5871b66d81a12a492bd8e6aea9",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_cce_node_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8a2e3d2c08bbeae2212c9ac7890302757f44c1c5f2b7b1ea5083048ea57ee83a",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_ecs_instance_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e61b1e94f0f4de7c23bafbd46acd84509ff424b535afd19ae89603db1d21b2e6",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_evs_disk_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d2ea828e0ee96ced62c149de38588f0072938730d86926bfbadcef811214a7f5",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_vpc_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fe769d54bf782a2daf97bca8080a7c0113cfbe342a73f4d82a6901e73f9ec89d",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_vpc_security_group_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "53e84c01cba2d9c716ff879f93d07b0b7f4bb284f7a7402153fe1f3493cd0d95",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_vpc_security_group_rule_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9c704df39fa80206ad017d5e3165e22f4e342c4eae72f5f3becd381ebe17bc1b",
+   "format": 1
+  },
+  {
+   "name": "docs/hwc_vpc_subnet_module.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "79681edeeb262c52c5eb1ca51879ea2b185160945b4e9eeed21e876eb23db2a5",
+   "format": 1
+  },
+  {
+   "name": "docs/index.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4782d45995d972a2de03e09cb127510647d3da5171d7e5b00a6bcbfd180f7d00",
+   "format": 1
+  },
+  {
+   "name": "meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "meta/runtime.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2a49b13b8b138e248af84c96cd4367ad5afc175479b4781b23e754816631305e",
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/hwc_auth_options.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9b2c10903782a1dc805b3ab2c4331ae83002a70d4bfa18234bded02815579cbc",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "98b4d9cf4b1e34ff862b4f475c616ad0ec7a6995268b322d410461dae752c251",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/hwc_utils.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bc300d07c59429a8bef6f024a1005d3d35b1d8a47119e204a58ce55b82772cc2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_cce_cluster.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9d48f280bdbf5f4c4fef2fca47bad4f79fbbbd02d44cc147d5b7fab17a533388",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_cce_node.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c3f893bb36560324de58d0f471f3f16134bef1da9f6658d52fc5e449d839b889",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_ecs_instance.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "833a6f33c3a0b28d7042b08e91ebb7c18ebe19c58c29156c14af5f5ecc6f1227",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_evs_disk.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3b1e9af8a766c305d7cf9055025822edace126a49693c151ae00f1ffaee9fb9f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_vpc.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a554c35c3a3f99ea188ce66332a9064e8ab55b1ce89febd02e2e0bea37b278c0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_vpc_security_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a658b8f92ddf24d24087967f1b229145cddbf5b427125bd35631572662cdff22",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_vpc_security_group_rule.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e910d05abf95965dc5bc318ca0b18b625c8e2e6c786bffe4a0627673f7f4378a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/hwc_vpc_subnet.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eb37813f6373c963327b25746b7bb61ec1dadc285ebc53185112ceb51a495ed2",
+   "format": 1
+  },
+  {
+   "name": "requirements.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "46ac0ef09e195bd6e6be1dde9988593ba35754e6a19dbc8d5ff5a9078270f309",
+   "format": 1
+  },
+  {
+   "name": "tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/cloud-config-hwc.yml.template",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2580d31d917868dbac4e1b6b3e45f5af0361bbbc4788da9f995d0015b5a7f949",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "580276862e0002c3d0ae43d051d2c316edced31d022fca6d4016749a721f6e11",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_ecs_instance",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_ecs_instance/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_ecs_instance/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_ecs_instance/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "78d416bbbe3ef6c489a841f5265238764ff5bc65924feaf9482517faaf5dc78c",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_evs_disk",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_evs_disk/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_evs_disk/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_evs_disk/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "01f40356bea9f18022d8aa280fef464cde4f94f91b72b5c95b5586b51009e2bf",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_network_vpc",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_network_vpc/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_network_vpc/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_network_vpc/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2c503ed8c077000443efd5e46010b6eab99190ac97801ca86573469c4bc99f12",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_smn_topic",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_smn_topic/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_smn_topic/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_smn_topic/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dd9034620372f52cb34cee53d4659e7aa2410d0fd132596e8dfdbc8af99a6b16",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_eip",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_eip/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_eip/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_eip/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "25045c6c4a13d751f322a7b4bbec25444a6f42fbfb6ae15a0b2c10b045d320f8",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_peering_connect",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_peering_connect/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_peering_connect/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_peering_connect/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7297e362a20e760c96c90003889e241155f3938433aed71a59497bee061a6798",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_port",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_port/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_port/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_port/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "812a6a9781dd307dbaa72d571cb4501a6fb1461921c9ae6cf60c31c084a57bd6",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_private_ip",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_private_ip/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_private_ip/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_private_ip/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "469c90c8e6764f978cce391755f85ed9457b0648dcf652991f34a820ff429f49",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_route",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_route/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_route/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_route/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "df143f640c4ca0a9f371de1c57d1b41771558787cad9fa067043aef00b629c2c",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "859ffa46e576c8bfb34d5c0578b142afdff8be01a18fad0b321e13159179e797",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group_rule",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group_rule/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group_rule/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_security_group_rule/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2b86a74b55ee20808f263d0566a7d6d8810d2996d161aea890a5d1036639c72e",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_subnet",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_subnet/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_subnet/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/hwc_vpc_subnet/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e4eb57f306fc929840828b1bff10b1a9ff702feba8a4ee6ba8e6526b8d7a6da7",
+   "format": 1
+  },
+  {
+   "name": "tests/units",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/units/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/units/module_utils/hwc",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/units/module_utils/hwc/test_dict_comparison.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "082b26545f3cbd421b9368c0d4af4fa85b3a1dda397e1025b92199c8b977c9d3",
+   "format": 1
+  },
+  {
+   "name": "tests/units/module_utils/hwc/test_hwc_utils.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e6f8fc91ae02c537a51757f71f210e55fe889cfe0260c4536ed1f333d1e58940",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

@@ -1,0 +1,25 @@
+- name: Diagnostic
+  hosts: devices
+  gather_facts: no
+  tasks:
+    
+    - name: Check changed tasks in the "Policy Compliance" plays
+      ansible.builtin.shell: 'grep "changed:" logs/policy-compliance.log'
+      register: changed_results
+
+    - name: Changed tasks
+      ansible.builtin.debug:
+        msg: "{{ changed_results.stdout_lines }}"
+
+    - name: Diagnose reachability count to all devices from ICMP Playbook
+      ansible.builtin.shell: grep "pong" logs/icmp.log | wc -l
+      register: pong_count
+      run_once: yes
+    - name: Reached Devices
+      ansible.builtin.debug:
+        msg: 'Number of Reached Devices: "{{ pong_count.stdout_lines }}"'
+      run_once: yes
+    - name: Diagnose non-reachable devices count from ICMP Playbook
+      ansible.builtin.shell: grep "failed:" logs/icmp.log | wc -l
+      register: failed_count
+

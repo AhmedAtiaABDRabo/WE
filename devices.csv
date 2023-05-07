@@ -1,0 +1,6 @@
+iosxr,cisco xrv9000,10.100.100.122,cisco1
+ios,cisco 9000,10.100.100.22,cisco2
+junos,vmx104,10.10.10.44,juniper1
+nxos,nxos122,10.10.10.77,nxos1
+zte,zte-test,10.10.10.99,zte1
+huawei,huawei-test,10.21.2.2,huawei1

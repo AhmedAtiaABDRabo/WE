@@ -1,0 +1,36 @@
+- name: Upgrade router software
+  hosts: devices
+  become: true
+
+  vars:
+    software_image_location: /path/to/software/image
+    router_username: admin
+    router_password: admin
+
+  tasks:
+  - name: Copy software image to router
+    copy:
+      src: "{{ software_image_location }}"
+      dest: /tmp/software-image.bin
+    register: copy_result
+
+  - name: Verify software image copied successfully
+    assert:
+      that: copy_result|success
+
+  - name: Upgrade router software
+    ios_command:
+      commands:
+        - copy /tmp/software-image.bin flash:
+        - boot system flash:/software-image.bin
+      provider:
+        host: "{{ inventory_hostname }}"
+        username: "{{ router_username }}"
+        password: "{{ router_password }}"
+        authorize: yes
+        auth_pass: "{{ router_password }}"
+    register: upgrade_result
+
+  - name: Verify router software upgraded successfully
+    assert:
+      that: upgrade_result.stdout_lines[0] is search('System image file is "flash:/software-image.bin"')

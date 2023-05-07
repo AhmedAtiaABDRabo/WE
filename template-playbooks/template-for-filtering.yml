@@ -1,0 +1,11 @@
+  tasks:
+    - name: Clearing Logs Cache
+      ansible.builtin.shell: echo " " > ansible.log
+
+  tasks:
+    - name: This task ensures filtering output from log files
+      ansible.builtin.shell: ./filter.sh > LOGFILE.log
+
+    - name: Completing Filter
+      ansible.builtin.shell:  ' echo -e "=== \n=== \n===" >> LOGFILE.log ; echo Playbook Finished At: >> LOGFILE.log ; date >> LOGFILE.log ; echo -e "=== \n=== \n=== \n" >> LOGFILE.log '
+

@@ -1,0 +1,8 @@
+download_url: https://galaxy.ansible.com/download/hwceco-hwcollection-1.0.5.tar.gz
+format_version: 1.0.0
+name: hwcollection
+namespace: hwceco
+server: https://galaxy.ansible.com/api/
+signatures: []
+version: 1.0.5
+version_url: https://galaxy.ansible.com/api/v2/collections/hwceco/hwcollection/versions/1.0.5/

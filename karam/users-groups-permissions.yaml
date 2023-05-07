@@ -1,0 +1,25 @@
+NEW_USER_NAME: karam8
+NEW_USER_PASS: "123" 
+USERGROUP_NAME: karam-group3
+
+NEW_ADMIN_NAME: admin2 
+NEW_ADMIN_PASS: 123 
+ADMIN_GROUP_NAME: admins
+
+USERS:
+  - NAME: karam9
+    PASS: 123
+    USER_GROUP: karam-group9
+  - NAME: karam10
+    PASS: 123
+    USER_GROUP: karam-group10
+  - NAME: admin-user
+    PASS: 123
+    USER_GROUP: admin-user-group
+    ADMIN: true
+
+ADMINS:
+  - NAME: admin3
+    PASS: 123
+    ADMIN_GROUP: admins
+

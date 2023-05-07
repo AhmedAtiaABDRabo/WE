@@ -1,0 +1,92 @@
+ 
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 03:57:43 PM EET 2023 @@@@@@@
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 03:57:46 PM EET 2023 @@@@@@@
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 03:59:17 PM EET 2023 @@@@@@@
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 03:59:17 PM EET 2023 @@@@@@@
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 03:59:49 PM EET 2023 @@@@@@@
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 03:59:49 PM EET 2023 @@@@@@@
+@@@@@@@ Scan report done at Mon Apr 10 04:03:41 PM EET 2023 @@@@@@@
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+@@@@@@@ Scan report done at Mon Apr 10 04:04:07 PM EET 2023 @@@@@@@
+@@@@@@@ Scan report done at Mon Apr 10 04:04:07 PM EET 2023 @@@@@@@
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:08 EET
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:08 EET
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+@@@@@@@ Playbook Port Scan report done at Mon Apr 10 04:09:10 PM EET 2023 @@@@@@@
+@@@@@@@ Playbook Port Scan report done at Mon Apr 10 04:09:10 PM EET 2023 @@@@@@@
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:28 EET
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:28 EET
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:31 EET
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:31 EET
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+@@@@@@@ Playbook Port Scan report done at Mon Apr 10 04:31:26 PM EET 2023 @@@@@@@
+@@@@@@@ Playbook Port Scan report done at Mon Apr 10 04:31:26 PM EET 2023 @@@@@@@
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:32 EET
+Nmap scan report for 10.10.10.100
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:01:00:03 (Unknown)
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-04-10 16:32 EET
+Nmap scan report for 10.100.100.53
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 50:00:00:04:00:03 (Unknown)
+@@@@@@@ Playbook Port Scan report done at Mon Apr 10 04:32:16 PM EET 2023 @@@@@@@
+@@@@@@@ Playbook Port Scan report done at Mon Apr 10 04:32:16 PM EET 2023 @@@@@@@

@@ -1,0 +1,120 @@
+---
+#This playbook currently does the following compliances with devices:
+#
+#1. Compares configurations(lines) in the running-configuration with defined variables (router commands), if variables are not defined in 
+#the running-configuration then commands will be pushed to the devices.
+#
+#2. Compares lines from the running-configuration then push RELATED commands in other format (We need to know the syntax beforehand)
+#
+#3. Compares specific data from "show commands"  
+#
+#
+- name: Policy Compliance
+  hosts: iosxr
+  gather_facts: false
+  ignore_errors: true
+  
+  ###
+  #Security Policies Variables
+  #
+  vars:
+    firmware_version: "6.5.1" #Variable compared to devices versions
+    
+    pass_security_policies: #Commands pushed if not found in running-configuration
+      - running: username security
+        command: username security password 0 123
+      - running: username omar
+        command: username omar password 0 321
+    
+    aaa_security_policies:
+      - aaa authentication ppp default local
+      - aaa authentication login vty-authen group tacacs+ local
+  
+    acls:
+      - name: acl_1
+      - name: acl_2
+      - name: acl_3
+      - name: acl_4 
+
+  tasks:
+  ###
+  #Getting Running Configuration
+  #
+    - name: Get running configuration
+      cisco.iosxr.iosxr_command:
+        commands: 
+          - config
+          - do show running-config
+      register: running_conf
+
+  ###
+  #Checking firmware version
+  #
+    - name: Check firmware version
+      cisco.iosxr.iosxr_command:
+        commands:
+          - "show version | include Software"
+      register: version_output
+  
+  ###
+  #Check ACLs
+  #
+    - name: Check access-lists
+      cisco.iosxr.iosxr_command:
+        commands:
+          - show access-lists
+      register: acls_output
+
+  ###
+  #Upgrade firmware using policy
+  #
+    - name: Demo Example to Upgrade firmware if not following software version policy
+      cisco.iosxr.iosxr_config:
+        lines:
+          - "install add disk0:/firmware/{{ firmware_version }}"
+          - "install activate disk0:/firmware/{{ firmware_version }}"
+      when: "version_output.stdout_lines[0] is search(firmware_version)"
+
+  ###
+  #Update user passwords using policy (command line matching)
+  #
+    - name: Apply Password Security Policies
+      cisco.iosxr.iosxr_config:
+        lines:
+          - "{{ item.command }}"
+      when: "running_conf.stdout_lines | join(' ') is not search(item.running)" 
+      loop: "{{ pass_security_policies }}"
+  
+  ###
+  #Update AAA options using policy (running-config matching)
+  #
+    - name: Apply AAA Security Policies
+      cisco.iosxr.iosxr_config:
+        lines:
+          - "{{ item }}"
+      when: "running_conf.stdout_lines | join(' ') is not search(item)"
+      loop: "{{ aaa_security_policies }}"
+
+  ###
+  #Push an ACL if that not found (using show command matching)
+  #
+    - name: Push an access-list
+      cisco.iosxr.iosxr_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: "{{ item.name }}"
+            aces:
+            - sequence: 10
+              grant: permit
+              source:
+                any: true
+              destination:
+                any: true
+              protocol: tcp
+                #state: overridden
+      when: "acls_output.stdout_lines | join(' ') is not search(item.name)"
+      loop: "{{ acls }}"
+
+    - name: Save Playbook Logs
+      ansible.builtin.shell: cp ansible.log logs/policy-compliance.log

@@ -1,0 +1,28 @@
+----------
+
+2023-05-07 08:26:49,475 p=21 u=root n=ansible | fatal: [10.22.2.2]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"cisco.ios.ios_facts": {"failed": true, "invocation": {"module_args": {"available_network_resources": false, "gather_network_resources": null, "gather_subset": ["min"]}}, "msg": "ssh connection failed: ssh connect failed: No route to host"}}, "msg": "The following modules failed to execute: cisco.ios.ios_facts\n"}
+2023-05-07 08:27:00,483 p=21 u=root n=ansible | ok: [10.100.151.50]
+----------
+ ok: [10.100.100.53] => {
+    "msg": "pong"
+}
+2023-05-07 08:27:06,101 p=21 u=root n=ansible | ok: [10.10.10.100] => {
+----------
+ ok: [10.10.10.100] => {
+    "msg": "pong"
+}
+2023-05-07 08:27:06,130 p=21 u=root n=ansible | ok: [10.100.151.50] => {
+----------
+ ok: [10.100.151.50] => {
+    "msg": "pong"
+}
+2023-05-07 08:27:06,196 p=21 u=root n=ansible | PLAY [Filtering output] **************************************************************************************************************************************
+=== 
+=== 
+===
+Playbook Finished At:
+Sun May  7 08:27:07 UTC 2023
+=== 
+=== 
+=== 
+

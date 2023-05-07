@@ -1,0 +1,31 @@
+- name: Gathering IPV4
+  hosts: devices
+  gather_facts: no
+  tasks:
+    #- name: Clearing Logs Cache
+    # ansible.builtin.shell: echo " " > ansible.log
+
+        #- name: Gathering Devices Facts
+        #cisco.iosxr.iosxr_facts:
+        #gather_subset: all
+        #  gather_network_resources: all
+        #register: myout
+
+        #    - name: Returned IPV4 Address
+        #ansible.builtin.debug:
+        #msg: "{{ myout.ansible_facts.ansible_net_all_ipv4_addresses }}"
+
+        #- name: Scanning open ports on devices
+        #ansible.builtin.shell: grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' ansible.log | sort | uniq | while read ip; do nmap -v -p 1-100 $ip; done | tee logs/nmap-ipv4.log
+        #register: nmap_output    
+    
+    - name: NMAP
+      ansible.builtin.shell: nmap -p 1-65535 -T5 --min-rate 999999 -n {{ ansible_host }} --open | grep -E 'Starting Nmap|Nmap scan|PORT|^[0-9]|MAC Address' | tee -a logs/nmap-ipv4.log
+      register: nmap_output
+    - name: NMAP Port Scan Output
+      ansible.builtin.debug:
+        var: nmap_output.stdout_lines
+
+    - name: Adjusting time stamps
+      ansible.builtin.shell: echo "@@@@@@@ Playbook Port Scan report done at $(date) @@@@@@@" >> logs/nmap-ipv4.log
+

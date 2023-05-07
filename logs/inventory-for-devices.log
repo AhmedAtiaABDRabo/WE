@@ -1,0 +1,78 @@
+IOSXR devices inventory:
+
+
+  Showing Device test Information
+  
+  Hostname=test
+  Version=6.5.1
+  Model=IOS-XRv 9000
+  Software_Version=iosxr
+  Serial=D2B5521FE0F
+  
+  IPv4_Addresses=
+     IPv4: 10.100.100.54
+     IPv4: 10.100.100.53
+     IPv4: 10.20.20.21
+     IPv4: 10.10.100.100
+
+  ACLs=
+
+  Interfaces=
+     name: GigabitEthernet0/0/0/0, enabled: True
+     name: GigabitEthernet0/0/0/1, enabled: False
+     name: GigabitEthernet0/0/0/2, enabled: False
+     name: GigabitEthernet0/0/0/3, enabled: False
+  
+  L3 Interfaces=
+     IPv4: {'name': 'GigabitEthernet0/0/0/0', 'ipv4': [{'address': '10.100.100.53/8'}]}
+     IPv4: {'name': 'GigabitEthernet0/0/0/1', 'ipv4': [{'address': '10.20.20.21/8'}]}
+     IPv4: {'name': 'GigabitEthernet0/0/0/2', 'ipv4': [{'address': '10.10.100.100/8'}]}
+     IPv4: {'name': 'GigabitEthernet0/0/0/3'}
+
+  MAC Addresses for All Interfaces=
+     Null0   :   Unknown
+     MgmtEth0/RP0/CPU0/0   :   5000.0004.0000
+     GigabitEthernet0/0/0/0   :   5000.0004.0003
+     GigabitEthernet0/0/0/1   :   5000.0004.0004
+     GigabitEthernet0/0/0/2   :   5000.0004.0005
+     GigabitEthernet0/0/0/3   :   5000.0004.0006
+
+
+  ==================================================
+
+  Showing Device Router1 Information
+  
+  Hostname=Router1
+  Version=6.5.1
+  Model=IOS-XRv 9000
+  Software_Version=iosxr
+  Serial=D2B5521FE0F
+  
+  IPv4_Addresses=
+     IPv4: 10.10.10.100
+
+  ACLs=
+     {'acls': [{'name': 'test', 'aces': [{'sequence': 10, 'grant': 'permit', 'protocol': 'tcp', 'source': {'any': True}, 'destination': {'any': True, 'port_protocol': {'eq': 'www'}}}, {'sequence': 20, 'grant': 'permit', 'protocol': 'tcp', 'source': {'any': True}, 'destination': {'any': True, 'port_protocol': {'eq': 'ssh'}}}]}], 'afi': 'ipv4'} 
+
+  Interfaces=
+     name: GigabitEthernet0/0/0/0, enabled: True
+     name: GigabitEthernet0/0/0/1, enabled: False
+     name: GigabitEthernet0/0/0/2, enabled: False
+     name: GigabitEthernet0/0/0/3, enabled: False
+  
+  L3 Interfaces=
+     IPv4: {'name': 'GigabitEthernet0/0/0/0', 'ipv4': [{'address': '10.10.10.100/8'}]}
+     IPv4: {'name': 'GigabitEthernet0/0/0/1'}
+     IPv4: {'name': 'GigabitEthernet0/0/0/2'}
+     IPv4: {'name': 'GigabitEthernet0/0/0/3'}
+
+  MAC Addresses for All Interfaces=
+     Null0   :   Unknown
+     MgmtEth0/RP0/CPU0/0   :   5000.0001.0000
+     GigabitEthernet0/0/0/0   :   5000.0001.0003
+     GigabitEthernet0/0/0/1   :   5000.0001.0004
+     GigabitEthernet0/0/0/2   :   5000.0001.0005
+     GigabitEthernet0/0/0/3   :   5000.0001.0006
+
+
+  ==================================================

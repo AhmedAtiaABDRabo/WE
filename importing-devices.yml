@@ -1,0 +1,53 @@
+#This playbook reads a csv file with no headers
+#and adds Devices IP ADDRESS and HOSTNAME into the inventory (hosts file)
+
+- name: Extract data from CSV file and add it to the inventory
+  hosts: localhost
+  tasks:
+    - name: Read CSV file
+      community.general.read_csv:
+        path: devices.csv #CSV file with no headers
+        fieldnames: os,device,ip,hostname #Custom headers
+        delimiter: ',' #Separations between columns
+      register: devices
+
+        ##    - name: Importing Routers to inventory file
+        #lineinfile:
+        #dest: test-inventory
+        #line: "{{ item.hostname }} ansible_host={{ item.ip }}"
+        #insertafter: '\[routers\]'
+        #loop: "{{ devices.list }}"
+ 
+    - name: Importing IOSXR Devices to inventory file
+      lineinfile:
+        dest: test-inventory
+        line: "{{ item.hostname }} ansible_host={{ item.ip }}"
+        insertafter: '\[iosxr\]'
+        state: present
+      when: item.os == 'iosxr'
+      loop: "{{ devices.list }}"
+
+    - name: Importing IOS Devices to inventory file
+      lineinfile:
+        dest: test-inventory
+        line: "{{ item.hostname }} ansible_host={{ item.ip }}"
+        insertafter: '\[ios\]'
+      when: item.os == 'ios'
+      loop: "{{ devices.list }}"
+
+    - name: Importing Juniper Devices to inventory file
+      lineinfile:
+        dest: test-inventory
+        line: "{{ item.hostname }} ansible_host={{ item.ip }}"
+        insertafter: '\[junos\]'
+      when: item.os == 'junos'
+      loop: "{{ devices.list }}"
+
+    - name: Importing NXOS Devices to inventory file
+      lineinfile:
+        dest: test-inventory
+        line: "{{ item.hostname }} ansible_host={{ item.ip }}"
+        insertafter: '\[nxos\]'
+      when: item.os == 'nxos'
+      loop: "{{ devices.list }}"
+

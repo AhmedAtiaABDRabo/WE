@@ -1,0 +1,15 @@
+#based on the tasks we wanna put it first 
+---
+- name: Priority tasks for Queuing
+  hosts: localhost
+  gather_facts: no
+  ignore_errors: true
+  tasks:
+    - name: backupconfig
+      shell: backup-configuration.yml
+    
+    
+  pre_tasks:  
+    - name: test
+      command: ansible-playbook icmp.yml
+      

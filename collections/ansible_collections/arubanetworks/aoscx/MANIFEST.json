@@ -1,0 +1,48 @@
+{
+ "collection_info": {
+  "namespace": "arubanetworks",
+  "name": "aoscx",
+  "version": "4.1.1",
+  "authors": [
+   "Madhusudan Pranav Venugopal",
+   "Tiffany Chiapuzio-Wong",
+   "Yang Liu",
+   "Derek Wang",
+   "Melvin Gutierrez",
+   "Rodrigo Jose Hernandez",
+   "Daniel Alvarado Bonilla",
+   "David Cordero"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "networking",
+   "aruba",
+   "arubaoscx",
+   "aoscx",
+   "switch",
+   "switches",
+   "hpe",
+   "datacenter"
+  ],
+  "description": null,
+  "license": [
+   "Apache-2.0"
+  ],
+  "license_file": null,
+  "dependencies": {
+   "ansible.netcommon": "*"
+  },
+  "repository": "https://github.com/aruba/aoscx-ansible-collection",
+  "documentation": null,
+  "homepage": null,
+  "issues": "https://github.com/aruba/aoscx-ansible-collection/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "a4d45ef8fdc8aa08efd041f7e207ed935139bb4b87e593932f08f24e09fb3a2c",
+  "format": 1
+ },
+ "format": 1
+}

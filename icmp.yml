@@ -1,0 +1,35 @@
+- name: ICMP
+  hosts: devices
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: Getting Correct Date
+      ansible.builtin.shell: date +'%m-%d-%Y@%-I:%M:%S%p'
+      register: os_date
+      environment:
+        TZ: "Africa/Cairo"
+      run_once: yes
+    
+    - name: Do an ICMP ping to hosts
+      ansible.builtin.shell: ping -c 1 "{{ ansible_host }}"
+      register: ping_results
+
+    - name: Debug successful pings
+      debug:
+        msg: "Pinged {{ ansible_host }} Successsfully"
+      when: ping_results.rc == 0
+
+    - name: Debug failed pings
+      debug:
+        msg: "Couldn't Reach {{ ansible_host }}"
+      when: ping_results.rc != 0
+
+    - name: Persist successful pings
+      ansible.builtin.shell: 'echo "{{ ansible_host }}" >> logs/icmp/yes@-"{{ os_date.stdout }}".log'
+      when: ping_results.rc == 0
+
+    - name: Persist failed pings
+      ansible.builtin.shell: 'echo "{{ ansible_host }}" >> logs/icmp/no@-"{{ os_date.stdout }}".log'
+      when: ping_results.rc != 0
+
+

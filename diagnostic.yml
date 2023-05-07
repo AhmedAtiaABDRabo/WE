@@ -1,0 +1,14 @@
+- name: Diagnostics
+  hosts: devices
+  gather_facts: no
+  tasks:
+    - name: Diagnose Interfaces Brief
+      cisco.iosxr.iosxr_command:
+        commands: show interfaces brief
+      register: intf
+
+    - name: Debug
+      debug:
+        msg: "{{ intf }}"
+      check_mode: yes
+      diff: yes

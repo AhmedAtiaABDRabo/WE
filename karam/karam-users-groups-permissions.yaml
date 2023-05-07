@@ -1,0 +1,13 @@
+---
+- name: Configure users, groups, and permissions
+  hosts: 10.100.151.50
+  vars_files:
+    - users-groups-permissions.yaml
+  tasks:
+    - name: Including tasks
+      include_tasks: "{{ item }}"
+      loop:
+        - users_tasks.yaml
+          #- admins_tasks.yaml
+
+

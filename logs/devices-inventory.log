@@ -1,0 +1,45 @@
+----------
+ ok: [10.100.100.53] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "03-26-2023-1-28-04PM"
+----------
+ ok: [10.10.10.100] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "03-26-2023-1-28-03PM"
+----------
+ TASK [configurable backup path] ****************************************************************************************************
+2023-03-26 13:28:13,983 p=21 u=root n=ansible | fatal: [10.100.100.53]: FAILED! => {"changed": false, "msg": "path specified in src not found"}
+2023-03-26 13:28:14,136 p=21 u=root n=ansible | fatal: [10.10.10.100]: FAILED! => {"changed": false, "msg": "path specified in src not found"}
+----------
+ fatal: [10.100.100.53]: FAILED! => {"changed": false, "msg": "path specified in src not found"}
+2023-03-26 13:28:14,136 p=21 u=root n=ansible | fatal: [10.10.10.100]: FAILED! => {"changed": false, "msg": "path specified in src not found"}
+2023-03-26 13:28:14,143 p=21 u=root n=ansible | PLAY RECAP *************************************************************************************************************************
+----------
+ ok: [10.100.100.53] => {
+    "msg": [
+        "INTERFACES= [ GigabitEthernet0/0/0/0, ENABLED= True | sep('\\n')  GigabitEthernet0/0/0/1, ENABLED= False | sep('\\n')  GigabitEthernet0/0/0/2, ENABLED= True | sep('\\n')  GigabitEthernet0/0/0/3, ENABLED= False | sep('\\n') ]"
+    ]
+}
+2023-03-26 13:28:45,715 p=21 u=root n=ansible | ok: [10.10.10.100] => {
+----------
+ ok: [10.10.10.100] => {
+    "msg": [
+        "INTERFACES= [ GigabitEthernet0/0/0/0, ENABLED= True | sep('\\n')  GigabitEthernet0/0/0/1, ENABLED= False | sep('\\n')  GigabitEthernet0/0/0/2, ENABLED= False | sep('\\n')  GigabitEthernet0/0/0/3, ENABLED= False | sep('\\n') ]"
+    ]
+}
+2023-03-26 13:28:45,869 p=21 u=root n=ansible | PLAY [Filtering output] ****************************************************************************************
+=== 
+=== 
+===
+Playbook Finished At:
+Sun Mar 26 13:28:46 UTC 2023
+=== 
+=== 
+=== 
+

@@ -1,0 +1,97 @@
+- name: Backup running configuration
+  hosts: devices
+  gather_facts: no
+  vars:
+    - iosxr_backup_restore_file: /var/lib/awx/projects/we/backup/iosxr/10.100.100.53/10.100.100.53@04-10-2023@3:05:23PM.bck
+    - iosxr_restore_state: yes
+  tasks:
+    ###
+    #Timestamps adjustment
+    #
+    - name: Getting Correct Date
+      ansible.builtin.shell: date +'%m-%d-%Y@%-I:%M:%S%p'
+      register: osdate
+      environment:
+        TZ: "Africa/Cairo"
+      run_once: yes
+
+    - name: Current Date Setting for Backups timestamps
+      ansible.builtin.debug:
+        msg: "{{ osdate.stdout }}"
+      run_once: yes
+    ###
+    #IOSXR Backup Procedure
+    #
+    - name: Backing up (iosxr) devices
+      cisco.iosxr.iosxr_config:
+        backup: yes
+      register: backup_iosxr_location
+      when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+    - name: Create backup dir for any newly added (iosxr) devices
+      file:
+        path: "/var/lib/awx/projects/we/backup/iosxr/{{ inventory_hostname }}"
+        state: directory
+        recurse: yes
+      when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+    - name: Copy backup files into backup/ directory for the (iosxr) devices
+      copy:
+        src: "{{ backup_iosxr_location.backup_path }}"
+        dest: '/var/lib/awx/projects/we/backup/iosxr/{{ inventory_hostname }}/{{ inventory_hostname }}@{{ osdate.stdout | replace("[", "") | replace("]", "") }}.bck'
+      when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+    ###
+    #Restoring configuration file
+    #
+    - name: Pushing a new configuration file to restore
+      cisco.iosxr.iosxr_config:
+        src: "{{ iosxr_backup_restore_file }}"
+        replace: config
+      register: task_status
+      failed_when: task_status.msg == 't' #This is done to bypass an SSH error while transfering the file
+      when: 
+        - ansible_network_os == 'cisco.iosxr.iosxr' 
+        - inventory_hostname == '10.100.100.53' in groups.iosxr
+        - iosxr_restore_state is defined
+
+    - name: Applying new configuration file
+      cisco.iosxr.iosxr_command: 
+        commands: copy harddisk:/ansible_config.txt running-config
+      when: 
+        - ansible_network_os == 'cisco.iosxr.iosxr'
+        - inventory_hostname == '10.100.100.53' in groups.iosxr
+        - iosxr_restore_state is defined
+    
+    ###
+    #IOS Backup Procedure
+    #
+    #
+    - name: Backing up (ios) devices
+      cisco.ios.ios_config:
+        backup: yes
+      register: backup_ios_location
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Create backup dir for the (ios) devices
+      file:
+        path: "/var/lib/awx/projects/we/backup/ios/{{ inventory_hostname }}"
+        state: directory
+        recurse: yes
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    - name: Copy backup files into backups/ directory for the (iosxr) devices
+      copy:
+        src: "{{ backup_ios_location.backup_path }}"
+        dest: '/var/lib/awx/projects/we/backup/ios/{{ inventory_hostname }}/{{ inventory_hostname }}@{{ osdate.stdout | replace("[", "") | replace("]", "") }}.bck'
+      when: ansible_network_os == 'cisco.ios.ios'
+
+
+    ###
+    #End of Backup Procedure
+    #
+    - name: Cleaning backup directory
+      ansible.builtin.shell: rm -f /var/lib/awx/projects/we/backup/* 2>/dev/null
+      register: o
+      failed_when: o.rc == 0
+      run_once: yes

@@ -1,0 +1,31 @@
+---
+- name: Preparing main play
+  no_log: true
+  gather_facts: no
+  hosts: localhost
+  vars:
+    - ansible_password: P@ssw0rd
+  tasks:
+    - name: Clearing Logs Cache
+      ansible.builtin.shell: echo " " > ansible.log
+
+- name: Driver Discovery
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run show version on IOS-XR
+      cisco.iosxr.iosxr_command:
+        commands: show version
+        wait_for: result[0] contains IOS-XR
+      register: drivers
+
+    - name: Showing Versions from Devices
+      ansible.builtin.debug:
+        msg: "{{ drivers }}"
+
+- name: Logging Drivers
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Logging Detected Drivers
+      ansible.builtin.shell: grep -E 'Cisco IOS XR Software' ansible.log | sed -n '2p' | sort | uniq | tee logs/discovered-drivers.log

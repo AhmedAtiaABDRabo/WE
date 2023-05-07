@@ -1,0 +1,50 @@
+- name: Logs
+  hosts: devices
+  gather_facts: no
+  vars:
+    - logging_date: april 12 00:00:00 #This means the whole day of April 9th
+    - change:
+        - task: hostname hellotest
+          condition: Interface GigabitEthernet0/0/0/1, changed state to Administratively Down
+        - task: hostname amora
+          condition: asdsadasda
+
+  tasks:
+    - name: Getting Correct Date
+      ansible.builtin.shell: date +'%m-%d-%Y@%-I:%M:%S%p'
+      register: osdate
+      environment:
+        TZ: "Africa/Cairo"
+      run_once: yes
+
+    - name: Gather logs
+      cisco.iosxr.iosxr_command:
+        commands: show logging start {{ logging_date }}
+      register: gath
+
+    - name: Create logs dir for any newly added (iosxr) devices
+      file:
+        path: "/var/lib/awx/projects/we/logs/iosxr/{{ inventory_hostname }}"
+        state: directory
+        recurse: yes
+      when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+    - name: debug
+      debug:
+        msg: "{{ gath.stdout_lines }}"
+        #- name: Persist logs for (iosxr) devices
+        #ansible.builtin.copy:
+        #content: "{{ gath.stdout_lines }}"
+        #dest: '/var/lib/awx/projects/we/logs/iosxr/{{ inventory_hostname }}/collected_logs@{{ osdate.stdout | replace("[", "") | replace("]", "") }}.log'
+        #when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+
+          #    - name: Persist Logs
+          #ansible.builtin.shell: echo "{{ gath.stdout_lines }}" >> '/var/lib/awx/projects/we/logs/iosxr/{{ inventory_hostname }}/collected_logs@{{ osdate.stdout | replace("[", "") | replace("]", "") }}.log'
+          #when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+        #- name: Detect Change from Logs
+        #cisco.iosxr.iosxr_command:
+        #commands: "{{ item.task }}"
+        #when: "item.condition is search({{ lookup('file', '/var/lib/awx/projects/we/logs/iosxr/{{ inventory_hostname }}/test.log')}})"
+        #loop: "{{ change }}"

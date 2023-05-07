@@ -1,0 +1,46 @@
+---
+- name: Preparing main play
+  no_log: true
+  gather_facts: no
+  hosts: localhost
+  vars:
+    - ansible_password: P@ssw0rd
+  tasks:
+    - name: Clearing Logs Cache
+      ansible.builtin.shell: echo " " > ansible.log
+
+- name: Devices Inventory
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Gathering Devices Facts
+      cisco.iosxr.iosxr_facts:
+        gather_subset: all
+        gather_network_resources: all  
+      register: myout
+      ignore_errors: true
+    - name: Returned Facts
+      ansible.builtin.debug:
+         msg:
+           - HOST= {{ myout.ansible_facts.ansible_network_resources.hostname }}
+           - ROUTER_MODEL= {{ myout.ansible_facts.ansible_net_model }} 
+           - SOFTWARE_VERSION= {{ myout.ansible_facts.ansible_net_system }}
+           - IPV4_ADDRESSES= {{ myout.ansible_facts.ansible_net_all_ipv4_addresses }}
+           - INTERFACES= {% for interface in myout.ansible_facts.ansible_network_resources.interfaces %} {{ '#'*13 }} INTERFACE= {{ interface.name }} ENABLED= {{ interface.enabled }} {% endfor %}
+           - ACL= {{ myout.ansible_facts.ansible_network_resources.acls }}
+           - INTERFACES= {{  myout.ansible_facts.ansible_network_resources.interfaces }} 
+           - MAC_ADDRESSES= "{{ myout.ansible_facts.ansible_net_interfaces | regex_findall('[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}') }}"
+
+- name: Filtering output
+  no_log: true
+  gather_facts: no
+  hosts: localhost
+  vars:
+    - ansible_password: P@ssw0rd
+  tasks:
+    - name: This task ensures filtering output from log files
+      ansible.builtin.shell: ./filter-scripts/filter.sh > logs/devices-inventory.log
+
+    - name: Completing Filter
+      ansible.builtin.shell:  ' echo -e "=== \n=== \n===" >> logs/devices-inventory.log ; echo Playbook Finished At: >> logs/devices-inventory.log ; date >> logs/devices-inventory.log ; echo -e "=== \n=== \n=== \n" >> logs/devices-inventory.log '
+

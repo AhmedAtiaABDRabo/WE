@@ -1,0 +1,34 @@
+---
+- name: Preparing main play
+  no_log: true
+  gather_facts: no
+  hosts: localhost
+  vars:
+    - ansible_password: P@ssw0rd
+  tasks:
+    - name: Clearing Logs Cache
+      ansible.builtin.shell: echo " " > ansible.log
+
+- name: Devices Inventory
+  hosts: all
+  tasks:
+    - name: Send ICMP requests
+      ping:
+      register: ping_result
+    - name: Display ping results
+      debug:
+        msg: "{{ ping_result.ping }}"
+
+- name: Filtering output
+  no_log: true
+  gather_facts: no
+  hosts: localhost
+  vars:
+    - ansible_password: P@ssw0rd
+  tasks:
+    - name: This task ensures filtering output from log files
+      ansible.builtin.shell: ./filter-scripts/filter.sh > logs/icmp.log
+
+    - name: Completing Filter
+      ansible.builtin.shell:  ' echo -e "=== \n=== \n===" >> logs/icmp.log ; echo Playbook Finished At: >> logs/icmp.log ; date >> logs/icmp.log ; echo -e "=== \n=== \n=== \n" >> logs/icmp.log '
+
